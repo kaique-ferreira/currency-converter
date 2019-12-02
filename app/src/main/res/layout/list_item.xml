@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.aruana.currencyprice.networking.CurrencyModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/countryFlag"
+            android:layout_width="@dimen/country_flag_size"
+            android:layout_height="@dimen/country_flag_size"
+            android:layout_centerVertical="true"
+            app:imageUrl="@{item.countryFlag}" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/countryFlag"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_toEndOf="@id/countryFlag"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.base}"
+                android:textSize="@dimen/header_text_size"
+                android:textStyle="bold"
+                tools:text="Base " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.countryName}"
+                android:textSize="@dimen/normal_text_size"
+                tools:text="Country " />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:inputType="textNoSuggestions|numberDecimal"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{item.price}"
+            android:textAlignment="center"
+            tools:text="Rate" />
+    </RelativeLayout>
+
+</layout>
